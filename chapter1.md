@@ -73,3 +73,17 @@ $ django-admin.py --version
 1.9.5
 ```
 
+If you get anything else or an error, you might want to repeat the steps to make sure you didn't miss anything.
+
+## Summary
+
+In this chapter we have installed:
+
+* Python: A great general purpose language that makes every one life easier.
+* PIP: Python Package Manager that install.
+* Django: The heavy lifting Python Web Framework.
+
+
+That made our tools for developing our Django Blog ready.
+
+
