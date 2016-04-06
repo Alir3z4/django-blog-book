@@ -100,4 +100,5 @@ Well, done!
 
 ## Summary
 
-
+In this chapter we have started our project and created our single `blog` app as well.
+Now, we have all the things we need to start developing our Django Blog.
