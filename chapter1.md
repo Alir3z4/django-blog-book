@@ -28,7 +28,9 @@ You can can find out how many python version you have on your machine by looking
 
 ```
 [alireza@arch ~]$ whereis python
-python: /usr/bin/python /usr/bin/python3.5m /usr/bin/python3.5m-config /usr/bin/python2.7-config /usr/bin/python3.5 /usr/bin/python3.5-config /usr/bin/python2.7 /usr/lib/python3.5 /usr/lib/python2.7 /usr/include/python3.5m /usr/include/python2.7 /usr/share/man/man1/python.1.gz
+python: /usr/bin/python /usr/bin/python3.5m /usr/bin/python3.5m-config /usr/bin/python2.7-config
+/usr/bin/python3.5 /usr/bin/python3.5-config /usr/bin/python2.7 /usr/lib/python3.5
+/usr/lib/python2.7 /usr/include/python3.5m /usr/include/python2.7 /usr/share/man/man1/python.1.gz
 ```
 
 There, I have `python2` as well.
