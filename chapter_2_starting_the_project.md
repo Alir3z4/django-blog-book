@@ -80,3 +80,24 @@ Let's create an app called `blog` which we will work on this app to create our b
 ./manage.py startapp blog
 ```
 
+Run `tree` to see what we have:
+```
+$ tree blog/
+blog/
+├── admin.py
+├── apps.py
+├── __init__.py
+├── migrations
+│   └── __init__.py
+├── models.py
+├── tests.py
+└── views.py
+
+1 directory, 7 files
+```
+Well, done!
+
+
+## Summary
+
+
