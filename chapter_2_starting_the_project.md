@@ -77,5 +77,6 @@ Available subcommands:
 Lots of helpers, lovely. For now we need the command `startapp` to create our blog app.
 Let's create an app called `blog` which we will work on this app to create our blog logic and implementation:
 ```
-./manage.py startapp
+./manage.py startapp blog
 ```
+
