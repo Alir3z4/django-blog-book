@@ -30,7 +30,7 @@ What we have now, is a **Django Project** that is responsible for our *settings*
 While you're in `django_blog` directory, you can see how many usefull commands are available through `manage.py`, let's try and see what kind of options we have:
 
 ```
-$ python manage.py 
+$ ./manage.py
 
 Type 'manage.py help <subcommand>' for help on a specific subcommand.
 
@@ -74,4 +74,8 @@ Available subcommands:
     runserver
 ```
 
-
+Lots of helpers, lovely. For now we need the command `startapp` to create our blog app.
+Let's create an app called `blog` which we will work on this app to create our blog logic and implementation:
+```
+./manage.py startapp
+```
