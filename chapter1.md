@@ -55,7 +55,7 @@ https://pip.pypa.io/en/stable/installing/#do-i-need-to-install-pip
 
 While running:
 ```
-python get-pip.py
+$ python get-pip.py
 ```
 
 Be sure to use the binary of Python 2, if your `python` command is linked to Python 3, then PIP will be installed for that Python version and will download and install the packages against it.
@@ -65,7 +65,7 @@ Be sure to use the binary of Python 2, if your `python` command is linked to Pyt
 We'll be using *pip* to install Django package from PyPI.
 
 ```
-pip install Django
+$ pip install Django
 ```
 To verify Django installation, let's check its version from command line:
 ```
