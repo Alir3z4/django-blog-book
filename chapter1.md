@@ -1,7 +1,6 @@
 # Chapter 1: Installing Python & Django 
 
-Before going further and implement our beloved Blog in Django, we need to install Python and Django.
-Installing both is simple and requires not much of hassble.
+Before going further and implement our beloved Blog in Django, we need to install Python and Django. Installing both is simple and requires not much of hassle.
 
 In this book we'll be writing our web site in **Python 2** and **Django 1.9**.
 
