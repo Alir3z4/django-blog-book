@@ -19,7 +19,7 @@ To know which version of Python you have installed on your machine, you can pass
 On my machine which is ArchLinux 64 bit, running `python -V` would print:
 
 ```
-[alireza@arch ~]$ python -V
+$ python -V
 Python 3.5.1
 ```
 That indicates I'm using Python 3 by default on my machine, if you're in the same situation you might have Python 2 installed as well.
@@ -27,7 +27,7 @@ That indicates I'm using Python 3 by default on my machine, if you're in the sam
 You can can find out how many python version you have on your machine by looking it with `whereis` command:
 
 ```
-[alireza@arch ~]$ whereis python
+$ whereis python
 python: /usr/bin/python /usr/bin/python3.5m /usr/bin/python3.5m-config /usr/bin/python2.7-config
 /usr/bin/python3.5 /usr/bin/python3.5-config /usr/bin/python2.7 /usr/lib/python3.5
 /usr/lib/python2.7 /usr/include/python3.5m /usr/include/python2.7 /usr/share/man/man1/python.1.gz
@@ -36,7 +36,7 @@ python: /usr/bin/python /usr/bin/python3.5m /usr/bin/python3.5m-config /usr/bin/
 There, I have `python2` as well.
 Let's pass `-V` to python again and see:
 ```
-[alireza@arch ~]$ python2 -V
+$ python2 -V
 Python 2.7.11
 ```
 
@@ -59,3 +59,17 @@ python get-pip.py
 ```
 
 Be sure to use the binary of Python 2, if your `python` command is linked to Python 3, then PIP will be installed for that Python version and will download and install the packages against it.
+
+### Django
+
+We'll be using *pip* to install Django package from PyPI.
+
+```
+pip install Django
+```
+To verify Django installation, let's check its version from command line:
+```
+$ django-admin.py --version
+1.9.5
+```
+
