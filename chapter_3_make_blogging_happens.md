@@ -56,19 +56,19 @@ class Post(models.Model):
 
     def __str__(self):
         """
-        Display Post title
+        Post title as `Post` object representative.
 
         :returns: Post's title
         :rtype: str
         """
         return self.title
-    
+
     def is_drafted(self):
         """
         :rtype: bool
         """
         return self.status == self.STATUS_DRAFTED
-    
+
     def is_published(self):
         """
         :rtype: bool
