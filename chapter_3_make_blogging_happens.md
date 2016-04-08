@@ -10,7 +10,7 @@ At its core it should comes with below features:
 * Submitting Posts.
   * Drafting & Publishing.
   * Post as different Authors (users).
-* An Index page to show all of the post sorted by the newest.
+* An Index page to show all the post sorted by the newest.
 * A Detail page to show individual Post content.
 * User Friendly URLs.
 
