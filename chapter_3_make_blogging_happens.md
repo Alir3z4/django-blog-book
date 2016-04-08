@@ -25,3 +25,53 @@ Any extra feature should that can work independently from the blog app should ge
 
 Let's define the database structure, in Django it should live in `models.py` file.
 
+`blog/models.py`:
+```
+from __future__ import unicode_literals
+from django.contrib.auth.models import User
+from django.utils.encoding import python_2_unicode_compatible
+from django.utils.translation import gettext as _
+from django.db import models
+
+
+@python_2_unicode_compatible
+class Post(models.Model):
+    STATUS_DRAFTED = 1
+    STATUS_PUBLISHED = 2
+
+    STATUS_CHOICES = (
+        (STATUS_DRAFTED, _('Drafted')),
+        (STATUS_PUBLISHED, _('Published')),
+    )
+
+    title = models.CharField(verbose_name=_('title'), max_length=155)
+    slug = models.SlugField(verbose_name=_('slug'))
+    content = models.TextField(verbose_name=_('content'), max_length=10000)
+    user = models.ForeignKey(verbose_name=_('user'), to=User)
+    status = models.CharField(
+        verbose_name=_('status'),
+        choices=STATUS_CHOICES,
+        default=STATUS_DRAFTED
+    )
+
+    def __str__(self):
+        """
+        Display Post title
+
+        :returns: Post's title
+        :rtype: str
+        """
+        return self.title
+    
+    def is_drafted(self):
+        """
+        :rtype: bool
+        """
+        return self.status == self.STATUS_DRAFTED
+    
+    def is_published(self):
+        """
+        :rtype: bool
+        """
+        return self.status == self.STATUS_PUBLISHED
+```
