@@ -75,3 +75,18 @@ class Post(models.Model):
         """
         return self.status == self.STATUS_PUBLISHED
 ```
+
+Model `Post` is easy to read and follow.
+Let's look at some good practices in this code that help you write a better Django application.
+
+Since we're writing our code in Python 2 while using Django it's better to use:
+```
+from django.utils.encoding import python_2_unicode_compatible
+```
+Decorator `python_2_unicode_compatible` makes models with `__str__` method compatible to work with `unicode` data as well, in earlier versions of Django we would write make a method called `__unicode__` that would work with `unicode` strings as well.
+
+Look how we started our models to be translation ready for Django, simply by:
+```
+from django.utils.translation import gettext as _
+```
+
