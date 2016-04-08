@@ -19,4 +19,4 @@ Yes, that's a good way to design an application when working with Django or any 
 An application should do one job and only one job. That's why we don't have **comments** or **Visit Counts** or other features included in our Blog Application design.
 
 
-Any extra feature should that can work independenly from the blog app should get developed as an external app or package.
+Any extra feature should that can work independently from the blog app should get developed as an external app or package.
