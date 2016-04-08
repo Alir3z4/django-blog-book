@@ -9,4 +9,4 @@ Django is complete full stack [mega] Web framework. It provides what so ever nee
 For this book I have chosen Django Web Framework to build a Blog with common features.
 We assume you know basic Syntax of Python and have read [Django Official Tutorial](https://docs.djangoproject.com/en/stable/intro/tutorial01/).
 
-Provided code and snippets are simple and self-explanatory and come with comment in the code as well as some DocString for code documentation that can be used for future code document generation via available tools such as [Sphinx](http://www.sphinx-doc.org/en/stable/) and others. The way of coding would be describing *what* and *why* we're doing that implementation in plain English.
+Provided code and snippets are simple and self-explanatory and come with comment in the code as well as some `DocString` for code documentation that can be used for future code document generation via available tools such as [Sphinx](http://www.sphinx-doc.org/en/stable/) and others. The way of coding would be describing *what* and *why* we're doing that implementation in plain English.
