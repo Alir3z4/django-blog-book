@@ -7,7 +7,7 @@ Using `django-admin.py`, we can start our project directory and its default sett
 ```
 $ django-admin.py startproject django_blog && cd django_blog
 ```
-If you have `tree` installed on your machine, it should output the following result when running it inside of `django_blog` directory:
+If you have **tree** installed on your machine, it should output the following result when running it inside of `django_blog` directory:
 ```
 $ tree 
 .
