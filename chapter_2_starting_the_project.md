@@ -27,7 +27,7 @@ At the moment there's nothing to touch or modify, we can just keep the current f
 
 What we have now, is a **Django Project** that is responsible for our *settings* and holding the main *urls* and a script called `manage.py` that is required to run Django server and lots of other things.
 
-While you're in `django_blog` directory, you can see how many usefull commands are available through `manage.py`, let's try and see what kind of options we have:
+While you're in `django_blog` directory, you can see how many useful commands are available through `manage.py`, let's try and see what kind of options we have:
 
 ```
 $ ./manage.py
