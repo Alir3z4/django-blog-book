@@ -1,6 +1,6 @@
 # Django Blog
 
-Creating Web sites is fun, it's so great that we do whatever we can to learn how to do it. We developers love doing it no matter what.
+Creating Web sites is fun, it's so great that we do whatever we can to learn how to do it. We developers love doing it, no matter what.
 
 Python is a language known for being easy to learn and ridiculously powerful. If you're reading this book, it means you have already made your decision and did your research about this wonderful language.
 
