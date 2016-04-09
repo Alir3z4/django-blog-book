@@ -53,6 +53,16 @@ class Post(models.Model):
         choices=STATUS_CHOICES,
         default=STATUS_DRAFTED
     )
+    created = models.DateTimeField(
+        verbose_name=_("created"),
+        auto_now_add=True,
+        editable=False
+    )
+    updated = models.DateTimeField(
+        verbose_name=_('updated'),
+        auto_now=True,
+        editable=False,
+    )
 
     def __str__(self):
         """
@@ -74,6 +84,12 @@ class Post(models.Model):
         :rtype: bool
         """
         return self.status == self.STATUS_PUBLISHED
+
+    class Meta:
+        verbose_name = _('post')
+        verbose_name_plural = _('posts')
+        get_latest_by = "id"
+        ordering = ['-id', ]
 ```
 
 Model `Post` is easy to read and follow.
@@ -94,6 +110,13 @@ I always make my project translatable, even if I don't have any plans to add any
 Aliasing `gettext` with `_` should be familiar to you, most of the other projects or languages use *underscore* `_` to mark translatable strings.
 
 Later on, you can run user `django-admin.py` to collect and compile translation files and make the internationalization and localization of your program much easier.
+
+As keeping creation and modification of the posts, we have created two fields called:
+
+* `created`: Will have a default value of creation `DateTime` by passing `auto_now_add` argument. So any time a post gets created, `created` default value would be set, after saving the `Post` instance it will never get updated.
+* `updated`: Get the same default `DateTime` value as `created` field but will change to current date time whenever `Post` instance get modified and saved.
+
+Both `created` and `updated` fields cannot not be modified from admin panel, because we have passed `editable` as argument with value of `False`.
 
 After we have defined our Blog's Post required fields, we have created two helpers as well.
 
