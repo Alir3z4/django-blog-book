@@ -155,5 +155,13 @@ Let's go ahead and see what we have defined here.
 
 * `list_display`: On the change list of the admin, where we see a list of all the posts, we'll be displaying some of the Post attributes such as:
   * `title`
-  * `user` or the author of the Blog Post.
-  * `status` 
+  * `user`
+  * `status`
+  * `created`
+* `list_filter`: Filtering and Sorting the post list is another thing that Django Admin provides. Blog Post model has some fields that our suitable for filtering our data:
+  * `status`
+  * `created`
+  * `updated`
+* `search_fields`: Now a search field will appear on the change list that we can search in our posts. So if we look for a keyword or a text, it will search our defined model fields:
+  * `title`
+  * `content`
