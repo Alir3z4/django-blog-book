@@ -125,3 +125,30 @@ After we have defined our Blog's Post required fields, we have created two helpe
 
 
 These two helpers will help us later in our code base to have our conditions in the code much easier. Our view templates are the ones that would benefit a lot as well as Post Admin change list.
+
+## Admin
+
+Now that we have our Post model ready, we need an interface to **C**reate/**R**ead/**U**pdate/**D**elete as an administrator.
+
+Django comes with a powerful built-in Admin Framework to build an awesome admin panel right away with creating a simple file called `admin.py`. When starting `blog` app with `./manage.py startapp blog` it should have created an empty file for you.
+
+Let's define blog `Post` model admin, in `admin.py`.
+
+`blog/admin.py`:
+```
+from django.contrib import admin
+
+from blog.models import Post
+
+
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('title', 'user', 'status', 'created', )
+    list_filter = ('status', 'created', 'updated', )
+    search_fields = ('title', 'content', )
+
+
+admin.site.register(Post, PostAdmin)
+```
+
+That's all it takes for our Post admin model.
+ 
