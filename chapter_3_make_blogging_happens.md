@@ -26,7 +26,7 @@ Any extra features that can work independently from the blog app should get deve
 Let's define the database structure, in Django it should live in `models.py` file.
 
 `blog/models.py`:
-```
+```python
 from __future__ import unicode_literals
 from django.contrib.auth.models import User
 from django.utils.encoding import python_2_unicode_compatible
@@ -96,13 +96,13 @@ Model `Post` is easy to read and follow.
 Let's look at some good practices in this code that help you write a better Django application.
 
 Since we're writing our code in Python 2 while using Django it's better to use:
-```
+```python
 from django.utils.encoding import python_2_unicode_compatible
 ```
 Decorator `python_2_unicode_compatible` makes models with `__str__` method compatible to work with `unicode` data as well, in earlier versions of Django we would write make a method called `__unicode__` that would work with `unicode` strings as well.
 
 Look how we started our models to be translation ready for Django:
-```
+```python
 from django.utils.translation import gettext as _
 ```
 I always make my project translatable, even if I don't have any plans to add any translation in future. It's a good practice to follow while developing a software, applying it won't hurt anyone and most importantly not all the world speaks or write English or your mother language.
@@ -135,7 +135,7 @@ Django comes with a powerful built-in Admin Framework to build an awesome admin 
 Let's define blog `Post` model admin, in `admin.py`.
 
 `blog/admin.py`:
-```
+```python
 from django.contrib import admin
 
 from blog.models import Post
