@@ -95,3 +95,10 @@ Aliasing `gettext` with `_` should be familiar to you, most of the other project
 
 Later on, you can run user `django-admin.py` to collect and compile translation files and make the internationalization and localization of your program much easier.
 
+After we have defined our Blog's Post required fields, we have created two helpers as well.
+
+* `is_published`
+* `is_drafted`
+
+
+These two helpers will help us later in our code base to have our conditions in the code much easier. Our view templates are the ones that would benefit a lot as well as Post Admin change list.
