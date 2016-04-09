@@ -91,7 +91,7 @@ from django.utils.translation import gettext as _
 ```
 I always make my project translatable, even if I don't have any plans to add any translation in future. It's a good practice to follow while developing a software, applying it won't hurt anyone and most importantly not all the world speaks or write English or your mother language.
 
-Aliasing `gettext` with `_` should be familiar to you, most of the other projects or languages use *underscove* `_` to mark translatable strings.
+Aliasing `gettext` with `_` should be familiar to you, most of the other projects or languages use *underscore* `_` to mark translatable strings.
 
 Later on, you can run user `django-admin.py` to collect and compile translation files and make the internationalization and localization of your program much easier.
 
