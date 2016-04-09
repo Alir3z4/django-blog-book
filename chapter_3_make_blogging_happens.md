@@ -151,4 +151,9 @@ admin.site.register(Post, PostAdmin)
 ```
 
 That's all it takes for our Post admin model.
- 
+Let's go ahead and see what we have defined here.
+
+* `list_display`: On the change list of the admin, where we see a list of all the posts, we'll be displaying some of the Post attributes such as:
+  * `title`
+  * `user` or the author of the Blog Post.
+  * `status` 
