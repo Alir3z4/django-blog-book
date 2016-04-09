@@ -85,7 +85,7 @@ from django.utils.encoding import python_2_unicode_compatible
 ```
 Decorator `python_2_unicode_compatible` makes models with `__str__` method compatible to work with `unicode` data as well, in earlier versions of Django we would write make a method called `__unicode__` that would work with `unicode` strings as well.
 
-Look how we started our models to be translation ready for Django, simply by:
+Look how we started our models to be translation ready for Django:
 ```
 from django.utils.translation import gettext as _
 ```
