@@ -45,7 +45,7 @@ class Post(models.Model):
     )
 
     title = models.CharField(verbose_name=_('title'), max_length=155)
-    slug = models.SlugField(verbose_name=_('slug'))
+    slug = models.SlugField(verbose_name=_('slug'), unique=True)
     content = models.TextField(verbose_name=_('content'), max_length=10000)
     user = models.ForeignKey(verbose_name=_('user'), to=User)
     status = models.CharField(
