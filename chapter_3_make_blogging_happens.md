@@ -190,6 +190,11 @@ class PostListView(ListView):
 
 
 class PostDetailView(DetailView):
+    """
+    Getting one Post based on its `slug`.
+    
+    :class: PostDetailView
+    """
     model = Post
     context_object_name = 'post'
 ```
