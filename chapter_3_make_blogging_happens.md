@@ -172,7 +172,18 @@ The public face of blog has an logic behind it, Django calls it ``Views`` and ha
 
 `blog/views.py`:
 ```python
+from django.views.generic import ListView, DetailView
+
+from blog.models import Post
 
 
+class PostListView(ListView):
+    model = Post
+    paginate_by = 10
+    context_object_name = 'posts'
+
+
+class PostDetailView(DetailView):
+    model = Post
+    context_object_name = 'post'
 ```
-
