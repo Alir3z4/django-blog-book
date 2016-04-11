@@ -130,7 +130,7 @@ These two helpers will help us later in our code base to have our conditions in 
 
 Now that we have our Post model ready, we need an interface to **C**reate/**R**ead/**U**pdate/**D**elete (CRUD) as an administrator.
 
-Django comes with a powerful built-in Admin Framework to build an awesome admin panel right away with creating a simple file called `admin.py`. When starting `blog` app with `./manage.py startapp blog` it should have created an empty file for you.
+Django comes with a powerful built-in Admin Framework to build an awesome admin panel right away with creating a simple file called `admin.py`, where we define how our Post model should be available to admin area. When starting `blog` app with `./manage.py startapp blog` it should have created an empty file for you.
 
 Let's define blog `Post` model admin, in `admin.py`.
 
