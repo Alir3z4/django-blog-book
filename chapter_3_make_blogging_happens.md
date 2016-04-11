@@ -178,6 +178,12 @@ from blog.models import Post
 
 
 class PostListView(ListView):
+    """
+    Listing of all the posts.
+    Paginating by 10 items per page.
+    
+    :class: PostListView
+    """
     model = Post
     paginate_by = 10
     context_object_name = 'posts'
@@ -187,3 +193,5 @@ class PostDetailView(DetailView):
     model = Post
     context_object_name = 'post'
 ```
+
+There, that's our views.
