@@ -165,3 +165,14 @@ Let's go ahead and see what we have defined here.
 * `search_fields`: Now a search field will appear on the change list that we can search in our posts. So if we look for a keyword or a text, it will search our defined model fields:
   * `title`
   * `content`
+
+## Views
+
+The public face of blog has an logic behind it, Django calls it ``Views`` and has a comprehensive set of tools provided to make crafting HTTP requests pretty much easy.
+
+`blog/views.py`:
+```python
+
+
+```
+
