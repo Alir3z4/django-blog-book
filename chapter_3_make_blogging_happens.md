@@ -157,13 +157,9 @@ admin.site.register(Post, PostAdmin)
 That's all it takes for our Post admin model.
 Let's go ahead and see what we have defined here.
 
-* `list_display`: On the change list of the admin, where we see a list of all the posts, we'll be displaying some of the Post attributes such as:
-  * `title`
-  * `user`
-  * `status`
-  * `created`
+* `list_display`: On the change list of the admin, where we see a list of all the posts, we'll be displaying some of the Post attributes such as: `('title', 'user', 'status', 'created', )`.
 * `list_filter`: Filtering and Sorting the post list is another thing that Django Admin provides. Blog Post model has some fields that our suitable for filtering our data:
-  * `status`
+  * `status`: Can filter the Post list by `Draft` or `Published`.
   * `created`
   * `updated`
 * `search_fields`: Now a search field will appear on the change list that we can search in our posts. If we look for a keyword or a text, it will search our defined model fields:
