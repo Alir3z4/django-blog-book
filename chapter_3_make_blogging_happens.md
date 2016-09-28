@@ -199,4 +199,6 @@ class PostDetailView(DetailView):
     context_object_name = 'post'
 ```
 
-There, that's our views.
+There, that is for our blog views. Django Class Based Views makes it ridiculously simple to write. I write less code that does more, isn't amazing ?
+
+View `PostListView` inherits from `django.views.generic.ListView`, we only need to pass the model name, the rest is taken care of. I've added two other attributes such as `paginate_by` to limit the number of posts  that I want to list on the posts list view and `context_object_name` which will I use in the `post_list.html` template.
