@@ -202,4 +202,5 @@ There, that is for our blog views. Django Class Based Views makes it ridiculousl
 
 View `PostListView` inherits from `django.views.generic.ListView`, we need to pass the model name, the rest is taken care of. I've added two other attributes such as `paginate_by` to limit the number of posts  that I want to list on the posts list view and `context_object_name` which we'll be using in the `post_list.html` template to access the post list.
 
-View `PostDetailView` inherits from `django.views.generic.DetailView`, the defined attributes on this class are same as `PostListView`. The difference is it will show a single `post`.
+View `PostDetailView` inherits from `django.views.generic.DetailView`, the defined attributes on this class are same as `PostListView`. The difference is it will show a single post.
+
