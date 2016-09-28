@@ -166,7 +166,7 @@ Let's go ahead and see what we have defined here.
   * `status`
   * `created`
   * `updated`
-* `search_fields`: Now a search field will appear on the change list that we can search in our posts. So if we look for a keyword or a text, it will search our defined model fields:
+* `search_fields`: Now a search field will appear on the change list that we can search in our posts. If we look for a keyword or a text, it will search our defined model fields:
   * `title`
   * `content`
 
