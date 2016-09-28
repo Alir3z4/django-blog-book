@@ -115,7 +115,7 @@ Later on, you can run user `django-admin.py` to collect and compile translation 
 
 As keeping creation and modification of the posts, we have created two fields called:
 
-* `created`: Will have a default value of creation `DateTime` by passing `auto_now_add` argument. So any time a post gets created, `created` default value would be set, after saving the `Post` instance it will never get updated.
+* `created`: Will have a default value of creation `DateTime` by passing `auto_now_add` argument. Any time a post gets created, `created` default value would be set, after saving the `Post` instance it will never get updated.
 * `updated`: Get the same default `DateTime` value as `created` field but will change to current date time whenever `Post` instance get modified and saved.
 
 Both `created` and `updated` fields cannot not be modified from admin panel, because we have passed `editable` as argument with value of `False`.
