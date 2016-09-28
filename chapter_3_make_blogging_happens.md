@@ -30,7 +30,7 @@ Let's define the database structure, in Django it should live in `models.py` fil
 from __future__ import unicode_literals
 from django.contrib.auth.models import User
 from django.utils.encoding import python_2_unicode_compatible
-from django.utils.translation import gettext as _
+from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 
@@ -103,9 +103,9 @@ Decorator `python_2_unicode_compatible` makes models with `__str__` method compa
 
 Look how we started our models to be translation ready for Django:
 ```python
-from django.utils.translation import gettext as _
+from django.utils.translation import ugettext_lazy as _
 ```
-I always make my project translatable, even if I don't have any plans to add any translation in future. It's a good practice to follow while developing a software, applying it won't hurt anyone and most importantly not all the world speaks or write English or your mother language.
+I always make my projects translatable, even if I don't have any plans to add any translation in future. It's a good practice to follow while developing a software, applying it won't hurt anyone and most importantly not all the world speaks or write English or your mother language.
 
 Aliasing `gettext` with `_` should be familiar to you, most of the other projects or languages use *underscore* `_` to mark translatable strings.
 
