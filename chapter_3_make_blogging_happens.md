@@ -132,7 +132,14 @@ These two helpers will help us later in our code base to have our conditions in 
 
 Now that we have our Post model ready, we need an interface to **C**reate/**R**ead/**U**pdate/**D**elete (CRUD) as an administrator.
 
-Django comes with a powerful built-in Admin Framework to build an awesome admin panel right away with creating a simple file called `admin.py`, where we define how our Post model should be available to admin area. When we started the `blog` app with `./manage.py startapp blog` it should have created an empty file (`blog/admin.py`) for you.
+Django comes with a powerful built-in Admin Framework to build an awesome admin panel right away with creating a simple file called `admin.py`, where we define how our Post model should be available to admin area. 
+
+
+> One of the most powerful parts of Django is the automatic admin interface. It reads metadata from your models to provide a quick, model-centric interface where trusted users can manage content on your site. The admin’s recommended use is limited to an organization’s internal management tool. It’s not intended for building your entire front end around. -- [The Django admin site](https://docs.djangoproject.com/en/1.10/ref/contrib/admin/#module-django.contrib.admin)
+
+
+
+When we started the `blog` app with `./manage.py startapp blog` it should have created an empty file (`blog/admin.py`) for you.
 
 Let's define blog `Post` model admin, in `admin.py`.
 
