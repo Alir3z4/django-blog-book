@@ -157,14 +157,12 @@ admin.site.register(Post, PostAdmin)
 That's all it takes for our Post admin model.
 Let's go ahead and see what we have defined here.
 
-* `list_display`: On the change list of the admin, where we see a list of all the posts, we'll be displaying some of the Post attributes such as: `('title', 'user', 'status', 'created', )`.
-* `list_filter`: Filtering and Sorting the post list is another thing that Django Admin provides. Blog Post model has some fields that our suitable for filtering our data:
+* [`list_display`](https://docs.djangoproject.com/en/1.10/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_display): On the change list of the admin, where we see a list of all the posts, we'll be displaying some of the Post attributes such as: `('title', 'user', 'status', 'created', )`.
+* [`list_filter`](https://docs.djangoproject.com/en/1.10/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_filter): Filtering and Sorting the post list is another thing that Django Admin provides. Blog Post model has some fields that our suitable for filtering our data:
   * `status`: Can filter the Post list by `Draft` or `Published`.
-  * `created`
-  * `updated`
-* `search_fields`: Now a search field will appear on the change list that we can search in our posts. If we look for a keyword or a text, it will search our defined model fields:
-  * `title`
-  * `content`
+  * `['updated', 'created']`: We'll be able to filter the data based on the last several days, months, and year.
+* [`search_fields`](https://docs.djangoproject.com/en/1.10/ref/contrib/admin/#django.contrib.admin.ModelAdmin.search_fields): Now a search field will appear on the change list that allows us search in our posts. If we look for a keyword or a text, it will search the given search phrase in `title` and `content` of all the posts.
+
 
 ## Views
 
@@ -202,6 +200,6 @@ class PostDetailView(DetailView):
 
 There, that is for our blog views. Django Class Based Views makes it ridiculously simple to write. I write less code that does more, isn't amazing ?
 
-View `PostListView` inherits from `django.views.generic.ListView`, we only need to pass the model name, the rest is taken care of. I've added two other attributes such as `paginate_by` to limit the number of posts  that I want to list on the posts list view and `context_object_name` which we'll be using in the `post_list.html` template to access the post list.
+View `PostListView` inherits from `django.views.generic.ListView`, we need to pass the model name, the rest is taken care of. I've added two other attributes such as `paginate_by` to limit the number of posts  that I want to list on the posts list view and `context_object_name` which we'll be using in the `post_list.html` template to access the post list.
 
-View `PostDetailView` inherits from `django.views.generic.DetailView`, the defined attributes on this class are same as `PostListView`. The difference is it will only show a single `post`.
+View `PostDetailView` inherits from `django.views.generic.DetailView`, the defined attributes on this class are same as `PostListView`. The difference is it will show a single `post`.
