@@ -27,6 +27,7 @@ Let's define the database structure, in Django it should live in `models.py` fil
 
 `blog/models.py`:
 ```python
+"""Blog models."""
 from __future__ import unicode_literals
 from django.contrib.auth.models import User
 from django.utils.encoding import python_2_unicode_compatible
@@ -36,6 +37,7 @@ from django.db import models
 
 @python_2_unicode_compatible
 class Post(models.Model):
+    """Blog Post model."""
     STATUS_DRAFTED = 1
     STATUS_PUBLISHED = 2
 
@@ -93,7 +95,7 @@ class Post(models.Model):
 ```
 
 Model `Post` is easy to read and follow.
-Let's look at some good practices in this code that help you write a better Django application.
+Let's look at some good practices in this code that help you write a better Django applications.
 
 Since we're writing our code in Python 2 while using Django it's better to use:
 ```python
@@ -172,6 +174,7 @@ The public face of blog has an logic behind it, Django calls it ``Views`` and ha
 
 `blog/views.py`:
 ```python
+"""Blog Views."""
 from django.views.generic import ListView, DetailView
 
 from blog.models import Post
@@ -201,4 +204,6 @@ class PostDetailView(DetailView):
 
 There, that is for our blog views. Django Class Based Views makes it ridiculously simple to write. I write less code that does more, isn't amazing ?
 
-View `PostListView` inherits from `django.views.generic.ListView`, we only need to pass the model name, the rest is taken care of. I've added two other attributes such as `paginate_by` to limit the number of posts  that I want to list on the posts list view and `context_object_name` which will I use in the `post_list.html` template.
+View `PostListView` inherits from `django.views.generic.ListView`, we only need to pass the model name, the rest is taken care of. I've added two other attributes such as `paginate_by` to limit the number of posts  that I want to list on the posts list view and `context_object_name` which we'll be using in the `post_list.html` template to access the post list.
+
+View `PostDetailView` inherits from `django.views.generic.DetailView`, the defined attributes on this class are same as `PostListView`. The difference is it will only show a single `post`.
