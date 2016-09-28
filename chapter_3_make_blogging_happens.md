@@ -138,12 +138,14 @@ Let's define blog `Post` model admin, in `admin.py`.
 
 `blog/admin.py`:
 ```python
+"""Blog Admin."""
 from django.contrib import admin
 
 from blog.models import Post
 
 
 class PostAdmin(admin.ModelAdmin):
+    """Post admin"""
     list_display = ('title', 'user', 'status', 'created', )
     list_filter = ('status', 'created', 'updated', )
     search_fields = ('title', 'content', )
