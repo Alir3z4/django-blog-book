@@ -74,7 +74,9 @@ Available subcommands:
     runserver
 ```
 
-Lots of helpers, lovely. For now we need the command `startapp` to create our blog app.
+Lots of helpers, read about all of them at [django-admin and manage.py](https://docs.djangoproject.com/en/dev/ref/django-admin/) documentation page.
+
+For now we need the command `startapp` to create our blog app.
 Let's create an app called `blog` which we will work on this app to create our blog logic and implementation:
 ```
 ./manage.py startapp blog
@@ -100,5 +102,5 @@ Well, done!
 
 ## Summary
 
-In this chapter we have started our project and created our single `blog` app as well.
+In this chapter we have started our project and created our single `blog`.
 Now, we have all the things we need to start developing our Django Blog.
