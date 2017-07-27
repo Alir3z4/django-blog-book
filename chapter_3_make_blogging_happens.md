@@ -4,12 +4,12 @@ This chapter comes to be longer, since the core of Django Blog Application will 
 
 ## Design
 
-Our Blog application will have a minimal features, not fancy and of course not overloaded.
+Our Blog application will have a minimal features, not fancy and of course not overloaded.  
 At its core it should comes with below features:
 
 * Submitting Posts.
   * Drafting & Publishing.
-  * Post as different Authors (users).
+  * Post as different Authors \(users\).
 * An Index page to show all the post sorted by the newest.
 * A Detail page to show individual Post content.
 * User Friendly URLs.
@@ -18,7 +18,6 @@ Yes, that's a good way to design an application when working with Django or any 
 
 An application should do one job and only one job and do that completely. That's why we don't have **comments** or **Visit Counts** or other features included in our Blog Application design.
 
-
 Any extra features that can work independently from the blog app should get developed as an external app or package.
 
 ## Models
@@ -26,16 +25,15 @@ Any extra features that can work independently from the blog app should get deve
 Let's define the database structure, in Django it should live in `models.py` file.
 
 `blog/models.py`:
+
 ```python
 """Blog models."""
 from __future__ import unicode_literals
 from django.contrib.auth.models import User
-from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 
-@python_2_unicode_compatible
 class Post(models.Model):
     """Blog Post model."""
     STATUS_DRAFTED = 1
@@ -66,50 +64,37 @@ class Post(models.Model):
         editable=False,
     )
 
-    def __str__(self):
-        """
-        Post title as `Post` object representative.
-
-        :returns: Post's title
-        :rtype: str
-        """
+    def __str__(self) -> str:
+        """Post title as `Post` object representative."""
         return self.title
 
-    def is_drafted(self):
-        """
-        :rtype: bool
-        """
+    def is_drafted(self) -> bool:
+        """Returns True if the Post is drafted."""
         return self.status == self.STATUS_DRAFTED
 
-    def is_published(self):
-        """
-        :rtype: bool
-        """
+    def is_published(self) -> str:
+        """Returns True if the Post has been published."""
         return self.status == self.STATUS_PUBLISHED
 
     class Meta:
-        verbose_name = _('post')
-        verbose_name_plural = _('posts')
+        verbose_name = _('Post')
+        verbose_name_plural = _('Posts')
         get_latest_by = "id"
         ordering = ['-id', ]
 ```
 
-Model `Post` is easy to read and follow.
+Model `Post` is easy to read and follow.  
 Let's look at some good practices in this code that help you write a better Django applications.
 
-Since we're writing our code in Python 2 while using Django it's better to use:
-```python
-from django.utils.encoding import python_2_unicode_compatible
-```
-Decorator `python_2_unicode_compatible` makes models with `__str__` method compatible to work with `unicode` data as well, in earlier versions of Django we would write make a method called `__unicode__` that would work with `unicode` strings as well.
-
 Look how we started our models to be [translation](https://docs.djangoproject.com/en/dev/topics/i18n/translation) ready for Django:
+
 ```python
 from django.utils.translation import ugettext_lazy as _
 ```
-I always make my projects translatable, even if I don't have any plans to add any translation in future. It's a good practice to follow while developing a software, applying it won't hurt anyone and most importantly not all of the world speaks or write English or your mother language. 
 
-Aliasing [`ugettext_lazy`](https://docs.djangoproject.com/en/dev/topics/i18n/translation/#lazy-translation) with `_` should be familiar to you, most of the other projects or languages use *underscore* `_` to mark translatable strings.
+I always make my projects translatable, even if I don't have any plans to add any translation in future. It's a good practice to follow while developing a software, applying it won't hurt anyone and most importantly not all of the world speaks or write English or your mother language.
+
+Aliasing [`ugettext_lazy`](https://docs.djangoproject.com/en/dev/topics/i18n/translation/#lazy-translation) with `_` should be familiar to you, most of the other projects or languages use _underscore_ `_` to mark translatable strings.
 
 Later on, you can run user `django-admin.py` to collect and compile translation files and make the internationalization and localization of your program much easier.
 
@@ -125,25 +110,22 @@ After we have defined our Blog's Post required fields, we have created two helpe
 * `is_published`
 * `is_drafted`
 
-
 These two helpers will help us later in our code base to have our conditions in the code much easier. Our view templates are the ones that would benefit a lot as well as Post Admin change list.
 
 ## Admin
 
-Now that we have our Post model ready, we need an interface to **C**reate/**R**ead/**U**pdate/**D**elete (CRUD) as an administrator.
+Now that we have our Post model ready, we need an interface to **C**reate/**R**ead/**U**pdate/**D**elete \(CRUD\) as an administrator.
 
-Django comes with a powerful built-in Admin Framework to build an awesome admin panel right away with creating a simple file called `admin.py`, where we define how our Post model should be available to admin area. 
-
+Django comes with a powerful built-in Admin Framework to build an awesome admin panel right away with creating a simple file called `admin.py`, where we define how our Post model should be available to admin area.
 
 > One of the most powerful parts of Django is the automatic admin interface. It reads metadata from your models to provide a quick, model-centric interface where trusted users can manage content on your site. The admin’s recommended use is limited to an organization’s internal management tool. It’s not intended for building your entire front end around. -- [The Django admin site](https://docs.djangoproject.com/en/1.10/ref/contrib/admin/#module-django.contrib.admin)
 
-
-
-When we started the `blog` app with `./manage.py startapp blog` it should have created an empty file (`blog/admin.py`) for you.
+When we started the `blog` app with `./manage.py startapp blog` it should have created an empty file \(`blog/admin.py`\) for you.
 
 Let's define blog `Post` model admin, in `admin.py`.
 
 `blog/admin.py`:
+
 ```python
 """Blog Admin."""
 from django.contrib import admin
@@ -151,17 +133,16 @@ from django.contrib import admin
 from blog.models import Post
 
 
+@admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     """Post admin"""
     list_display = ('title', 'user', 'status', 'created', )
     list_filter = ('status', 'created', 'updated', )
     search_fields = ('title', 'content', )
 
-
-admin.site.register(Post, PostAdmin)
 ```
 
-That's all it takes for our Post admin model.
+That's all it takes for our Post admin model.  
 Let's go ahead and see what we have defined here.
 
 * [`list_display`](https://docs.djangoproject.com/en/1.10/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_display): On the change list of the admin, where we see a list of all the posts, we'll be displaying some of the Post attributes such as: `('title', 'user', 'status', 'created', )`.
@@ -170,12 +151,12 @@ Let's go ahead and see what we have defined here.
   * `['updated', 'created']`: We'll be able to filter the data based on the last several days, months, and year.
 * [`search_fields`](https://docs.djangoproject.com/en/1.10/ref/contrib/admin/#django.contrib.admin.ModelAdmin.search_fields): Now a search field will appear on the change list that allows us search in our posts. If we look for a keyword or a text, it will search the given search phrase in `title` and `content` of all the posts.
 
-
 ## Views
 
-The public face of blog has an logic behind it, Django calls it ``Views`` and has a comprehensive set of tools provided to make crafting HTTP requests pretty much easy.
+The public face of blog has an logic behind it, Django calls it `Views` and has a comprehensive set of tools provided to make crafting HTTP requests pretty much easy.
 
 `blog/views.py`:
+
 ```python
 """Blog Views."""
 from django.views.generic import ListView, DetailView
@@ -187,8 +168,6 @@ class PostListView(ListView):
     """
     Listing of all the posts.
     Paginating by 10 items per page.
-    
-    :class: PostListView
     """
     model = Post
     paginate_by = 10
@@ -196,11 +175,7 @@ class PostListView(ListView):
 
 
 class PostDetailView(DetailView):
-    """
-    Getting one Post based on its `slug`.
-    
-    :class: PostDetailView
-    """
+    """Getting one Post based on its `slug`."""
     model = Post
     context_object_name = 'post'
 ```
