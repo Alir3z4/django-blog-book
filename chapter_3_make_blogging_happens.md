@@ -26,7 +26,7 @@ Let's define the database structure, in Django it should live in `models.py` fil
 
 `blog/models.py`:
 
-```python
+```py
 """Blog models."""
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
@@ -87,7 +87,7 @@ Let's look at some good practices in this code that help you write a better Djan
 
 Look how we started our models to be [translation](https://docs.djangoproject.com/en/dev/topics/i18n/translation) ready for Django:
 
-```python
+```py
 from django.utils.translation import ugettext_lazy as _
 ```
 
@@ -125,7 +125,7 @@ Let's define blog `Post` model admin, in `admin.py`.
 
 `blog/admin.py`:
 
-```python
+```py
 """Blog Admin."""
 from django.contrib import admin
 
@@ -218,13 +218,26 @@ The process of handling a request in Django that results to rendering a page is 
 >
 > 5. If no regex matches, or if an exception is raised during any point in this process, Django invokes an appropriate error-handling view.
 >
->  -- [Django Docs \[How Django processes a request\]](https://docs.djangoproject.com/en/dev/topics/http/urls/#how-django-processes-a-request)
-
-
+>    -- [Django Docs \[How Django processes a request\]](https://docs.djangoproject.com/en/dev/topics/http/urls/#how-django-processes-a-request)
 
 Knowing above details from Django, makes me sleep better at night, because the developers that made that system and flow clearly know what they're doing.
 
 Now we know what URL routing is in Django, let's define ours.
 
 _**Spoiler Alert: You're going to be suprised how short the definition would be.**_
+
+Write the below in the file `blog/urls.py`:
+
+```py
+"""Blog URL configuration."""
+from django.conf.urls import url
+from typing import List
+
+from blog import views
+
+
+urlpatterns: List[str] = []
+```
+
+
 
