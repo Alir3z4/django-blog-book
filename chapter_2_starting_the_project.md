@@ -7,15 +7,17 @@ Using `django-admin.py`, we can start our project directory and its default sett
 ```
 $ django-admin.py startproject django_blog && cd django_blog
 ```
+
 If you have **tree** installed on your machine, it should output the following result when running it inside of `django_blog` directory:
+
 ```
 $ tree 
 .
 ├── django_blog
-│   ├── __init__.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
 └── manage.py
 
 1 directory, 5 files
@@ -25,7 +27,7 @@ Awesome!
 
 At the moment there's nothing to touch or modify, we can just keep the current files and their structure as they are.
 
-What we have now, is a **Django Project** that is responsible for our *settings* and holding the main *urls* and a script called `manage.py` that is required to run Django server and lots of other things.
+What we have now, is a **Django Project** that is responsible for our _settings_ and holding the main _urls_ and a script called `manage.py` that is required to run Django server and lots of other things.
 
 While you're in `django_blog` directory, you can see how many useful commands are available through `manage.py`, let's try and see what kind of options we have:
 
@@ -76,13 +78,15 @@ Available subcommands:
 
 Lots of helpers, read about all of them at [django-admin and manage.py](https://docs.djangoproject.com/en/dev/ref/django-admin/) documentation page.
 
-For now we need the command `startapp` to create our blog app.
+For now we need the command `startapp` to create our blog app.  
 Let's create an app called `blog` which we will work on this app to create our blog logic and implementation:
+
 ```
 ./manage.py startapp blog
 ```
 
 Run `tree` to see what we have:
+
 ```
 $ tree blog/
 blog/
@@ -90,17 +94,18 @@ blog/
 ├── apps.py
 ├── __init__.py
 ├── migrations
-│   └── __init__.py
+│   └── __init__.py
 ├── models.py
 ├── tests.py
 └── views.py
 
 1 directory, 7 files
 ```
-Well, done!
 
+Well, done!
 
 ## Summary
 
-In this chapter we have started our project and created our single `blog`.
+In this chapter we have started our project and created our single `blog`.  
 Now, we have all the things we need to start developing our Django Blog.
+
