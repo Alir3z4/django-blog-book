@@ -138,6 +138,7 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'user', 'status', 'created', )
     list_filter = ('status', 'created', 'updated', )
     search_fields = ('title', 'content', )
+    # TODO: pre=populate fields from title to slug
 ```
 
 That's all it takes for our Post admin model.  
