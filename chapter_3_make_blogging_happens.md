@@ -187,24 +187,44 @@ View `PostDetailView` inherits from `django.views.generic.DetailView`, the defin
 
 ## URL Routing
 
+Django URL Routing & Dispatching is the greatest URL handling I've ever seen in my entire professional software development career, it never let me down. It's nice, elegant, clean, logical, right to the point and easily extendible.
+
+In simple words, we create a list called \`urlpatterns\` and that hold our URLs that point to our View classes, and that's all.
+
+### What's URL Routing & Dispatching ?
+
 > A clean, elegant URL scheme is an important detail in a high-quality Web application. Django lets you design URLs however you want, with no framework limitations.
 >
 > There’s no`.php`or`.cgi`required, and certainly none of that`0,2097,1-1-1928,00`nonsense.
 >
-> See [Cool URIs don’t change](http://www.w3.org/Provider/Style/URI), by World Wide Web creator Tim Berners-Lee, for excellent arguments on why URLs should be clean and usable.
+> See [Cool URIs don’t change](http://www.w3.org/Provider/Style/URI), by World Wide Web creator Tim Berners-Lee, for excellent arguments on why URLs should be clean and usable. -- [Django Docs \[URL Dispatcher\]](https://docs.djangoproject.com/en/dev/topics/http/urls/#url-dispatcher)
 
-When a user requests a page from your Django-powered site, this is the algorithm the system follows to determine which Python code to execute:
+That's what URL Routing & Dispatching in Django and Django Official Documentation explains it well.
 
-1. Django determines the root URLconf module to use. Ordinarily, this is the value of the [ROOT\_URLCONF ](https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-ROOT_URLCONF)setting, but if the incoming `HttpRequest`object has a [urlconf ](https://docs.djangoproject.com/en/dev/ref/request-response/#django.http.HttpRequest.urlconf)attribute \(set by middleware\), its value will be used in place of the [ROOT\_URLCONF](https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-ROOT_URLCONF) setting.
-2. Django loads that Python module and looks for the variable `urlpatterns`. This should be a Python list of [django.conf.urls.url\(\)](https://docs.djangoproject.com/en/dev/ref/urls/#django.conf.urls.url) instances.
-3. Django runs through each URL pattern, in order, and stops at the first one that matches the requested URL.
-4. Once one of the regexes matches, Django imports and calls the given view, which is a simple Python function \(or a [class-based view](https://docs.djangoproject.com/en/dev/topics/class-based-views/)\). The view gets passed the following arguments:
+### How Django processes a request
 
-   * An instance of [HttpRequest](https://docs.djangoproject.com/en/dev/ref/request-response/#django.http.HttpRequest).
-   * If the matched regular expression returned no named groups, then the matches from the regular expression are provided as positional arguments.
-   * The keyword arguments are made up of any named groups matched by the regular expression, overridden by any arguments specified in the optional **kwargs **argument to [django.conf.urls.url\(\)](https://docs.djangoproject.com/en/dev/ref/urls/#django.conf.urls.url).
+The process of handling a request in Django that results to rendering a page is truly amazing, and looking at how Django handles such thing to us out of the box, it shows that how well designed it is this eco-system.
 
-5. If no regex matches, or if an exception is raised during any point in this process, Django invokes an appropriate error-handling view.
+> When a user requests a page from your Django-powered site, this is the algorithm the system follows to determine which Python code to execute:
+>
+> 1. Django determines the root URLconf module to use. Ordinarily, this is the value of the [ROOT\_URLCONF ](https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-ROOT_URLCONF)setting, but if the incoming `HttpRequest`object has a [urlconf ](https://docs.djangoproject.com/en/dev/ref/request-response/#django.http.HttpRequest.urlconf)attribute \(set by middleware\), its value will be used in place of the [ROOT\_URLCONF](https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-ROOT_URLCONF) setting.
+> 2. Django loads that Python module and looks for the variable `urlpatterns`. This should be a Python list of [django.conf.urls.url\(\)](https://docs.djangoproject.com/en/dev/ref/urls/#django.conf.urls.url) instances.
+> 3. Django runs through each URL pattern, in order, and stops at the first one that matches the requested URL.
+> 4. Once one of the regexes matches, Django imports and calls the given view, which is a simple Python function \(or a [class-based view](https://docs.djangoproject.com/en/dev/topics/class-based-views/)\). The view gets passed the following arguments:
+>
+>    * An instance of [HttpRequest](https://docs.djangoproject.com/en/dev/ref/request-response/#django.http.HttpRequest).
+>    * If the matched regular expression returned no named groups, then the matches from the regular expression are provided as positional arguments.
+>    * The keyword arguments are made up of any named groups matched by the regular expression, overridden by any arguments specified in the optional **kwargs **argument to [django.conf.urls.url\(\)](https://docs.djangoproject.com/en/dev/ref/urls/#django.conf.urls.url).
+>
+> 5. If no regex matches, or if an exception is raised during any point in this process, Django invokes an appropriate error-handling view.
+>
+>  -- [Django Docs \[How Django processes a request\]](https://docs.djangoproject.com/en/dev/topics/http/urls/#how-django-processes-a-request)
 
 
+
+Knowing above details from Django, makes me sleep better at night, because the developers that made that system and flow clearly know what they're doing.
+
+Now we know what URL routing is in Django, let's define ours.
+
+_**Spoiler Alert: You're going to be suprised how short the definition would be.**_
 
