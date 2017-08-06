@@ -28,7 +28,6 @@ Let's define the database structure, in Django it should live in `models.py` fil
 
 ```python
 """Blog models."""
-from __future__ import unicode_literals
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
@@ -139,7 +138,6 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'user', 'status', 'created', )
     list_filter = ('status', 'created', 'updated', )
     search_fields = ('title', 'content', )
-
 ```
 
 That's all it takes for our Post admin model.  
