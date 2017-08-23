@@ -61,6 +61,10 @@ $ django-admin.py --version
 
 If you get anything else or an error, you might want to repeat the steps to make sure you didn't miss anything.
 
+We have Django installed, as of now the only direct dependency of our project is Django. Let's add it to `requirements.txt` file where we list all of project dependencies and their direct version.
+
+In the root of the project directory a file named \`requirements.txt\` and
+
 ## Summary
 
 In this chapter we have installed:
