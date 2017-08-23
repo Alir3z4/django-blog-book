@@ -2,6 +2,8 @@
 
 In this chapter we're going to star our Django Blog project and do the basic configuration so we can get to the development in next chapters.
 
+## Initializing Project
+
 Using `django-admin.py`, we can start our project directory and its default settings right away. Let's go ahead and fire it up and see the result:
 
 ```
@@ -103,6 +105,20 @@ blog/
 ```
 
 Well, done!
+
+## Django application VS Django Project
+
+If you have noticed, we first created a Django Project and withing that we started a Django application. Don't be confused about them, the flow is simple. 
+
+A Django project is simply a Python package that keeps **settings**, **main URL configuration**, **WSGI application starting point **to feed into a web server such as \([gunicorn ](http://gunicorn.org/)or [uWSGI](https://uwsgi-docs.readthedocs.io/en/latest/)\) and finally a management file called [`manage.py`](https://docs.djangoproject.com/en/dev/ref/django-admin/) to run any built commands provided by Django on the project or a specific application.
+
+A Django application is a python package as well, that gets created inside a Django project, an application should belong to a project. The logic of each application should be isolated inside itself and not the project. Each application should have a purpose and implement it. The good part is, other application can communicate and use each others functionalities as well. Just like how we import a module and use its classed, in Django we can import classes and other application and start using them.
+
+In later chapters, we'll see how out blog application will use Django Auth application functionality for authentication, registration, creating posts.
+
+We created a Django application called "blog" for publishing articles, later we can create another application such as "shop" that handles selling products and maybe another application named "metrics" that handle some stats such as how many visitors and posts have been published that can provide some sweet charts in a fancy dashboard. \(_Although in this book, we're going to create the blog part only._\)
+
+## Dependency Management
 
 We have Django installed, as of now the only direct dependency of our project is Django. Let's add it to `requirements.txt` file where we list all of project dependencies and their direct version.
 
