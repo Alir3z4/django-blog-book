@@ -104,6 +104,16 @@ blog/
 
 Well, done!
 
+We have Django installed, as of now the only direct dependency of our project is Django. Let's add it to `requirements.txt` file where we list all of project dependencies and their direct version.
+
+In the root of the project directory a file named `requirements.txt` add Django:
+
+```
+Django==1.11.4
+```
+
+While working on any project, it's always good to keep `requirement.txt` file updated with any package we add to the project. All the CI and Build tools that I know, recognize this file and install all the package listed.
+
 ## Summary
 
 In this chapter we have started our project and created our single `blog`.  
