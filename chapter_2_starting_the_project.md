@@ -108,7 +108,7 @@ Well, done!
 
 ## Django application VS Django Project
 
-If you have noticed, we first created a Django Project and withing that we started a Django application. Don't be confused about them, the flow is simple. 
+If you have noticed, we first created a Django Project and withing that we started a Django application. Don't be confused about them, the flow is simple.
 
 A Django project is simply a Python package that keeps **settings**, **main URL configuration**, **WSGI application starting point **to feed into a web server such as \([gunicorn ](http://gunicorn.org/)or [uWSGI](https://uwsgi-docs.readthedocs.io/en/latest/)\) and finally a management file called [`manage.py`](https://docs.djangoproject.com/en/dev/ref/django-admin/) to run any built commands provided by Django on the project or a specific application.
 
@@ -129,6 +129,115 @@ Django==1.11.4
 ```
 
 While working on any project, it's always good to keep `requirement.txt` file updated with any package we add to the project. All the CI and Build tools that I know, recognize this file and install all the package listed.
+
+## Utility files
+
+Let's add some tiny files that help us organize our project.
+
+First file that I always create is `.gitignore `that tells Git to ignore watching some files and directories.
+
+In the root of the project directory a file named `.gitignore`:
+
+```
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*~
+
+# C extensions
+*.so
+
+# Sqlite
+*.sqlite3
+
+# Celery
+celerybeat-schedule
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+.idea
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+staticfiles/*
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Emacs temp files
+[#]*[#]
+.\#*
+
+# vim temp files
+*.swp
+.swo
+
+# SASS Cache
+**.sass-cache**
+static/CACHE/
+
+# Certs
+*.key
+*.crt
+*.zip
+
+# RBenv
+.ruby-version
+
+# Foreman
+logfile
+
+# Mac stuff
+*.DS_Store
+
+# ctags stuff
+tags
+
+# vagrant stuff
+.vagrant/
+coverage_html/
+```
+
+Any files or directory listed above will not be ignored by Git.
 
 ## Summary
 
