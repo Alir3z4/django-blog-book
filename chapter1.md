@@ -2,7 +2,7 @@
 
 Before going further and implement our beloved Blog in Django, we need to install Python and Django. Installing both is simple and requires not much of hassle.
 
-In this book we'll be writing our web site in **Python 3** and **Django 1.9**.
+In this book we'll be writing our web site in **Python 3** and **Django 1.11**.
 
 Necessary tools to get up and running are:
 
@@ -20,7 +20,7 @@ On my machine which is ArchLinux 64 bit, running `python -V` would print:
 
 ```
 $ python -V
-Python 3.6.1
+Python 3.6.2
 ```
 
 That indicates I'm using Python 3 by default on my machine, if you get the same output, you got it all working,
@@ -56,7 +56,7 @@ To verify Django installation, let's check its version from command line:
 
 ```
 $ django-admin.py --version
-1.11.3
+1.11.4
 ```
 
 If you get anything else or an error, you might want to repeat the steps to make sure you didn't miss anything.
