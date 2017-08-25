@@ -238,18 +238,24 @@ from blog import views
 
 # Django loads that Python module and looks for the variable urlpatterns.
 # This should be a Python list of django.conf.urls.url() instances.
-urlpatterns: List[str] = [
+urlpatterns: List[url] = [
     # Will route to a single post lookup by slug.
     # Example: /hello-world/
-    url(r'^(?P<slug>[-\w]+)/$', views.EntryDetail.as_view(),
+    url(r'^(?P<slug>[-\w]+)/$', views.PostDetailView.as_view(),
         name='post_detail'),
     # Will show list of posts.
     # Example: /
-    url(r'^$', views.ListView.as_view(), name='list'),
+    url(r'^$', views.ListView.as_view(), name='index'),
 ]
 ```
 
 That's all, we just defined one of the most advance and beautiful URL routing on the web.
 
-In Django 
+Notice the comment on `urlpatterns`, it's a list of [`django.conf.urls.url()`](https://docs.djangoproject.com/en/dev/ref/urls/#django.conf.urls.url). Django load all the URLs wee define in this variable.
+
+The first URL we define is for displaying a single post, the lookup key is `slug` , Django captures the value of it and passes to `PostDetailView`, from there the view recognize the lookup key and queries the database for a post that has an exact slug, if the post has been found it will render and display it, otherwise Django will return a Not Found \(404\) error. We'll take care of post detail page in next chapter as well as customizing 404 page template.
+
+Finally, our second URL is called `index`, that route handle the index page of the blog that usually shows a list of published posts.
+
+  
 
