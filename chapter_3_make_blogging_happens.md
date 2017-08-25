@@ -230,14 +230,23 @@ Write the below in the file `blog/urls.py`:
 
 ```py
 """Blog URL configuration."""
-from django.conf.urls import url
 from typing import List
+
+from django.conf.urls import url
 
 from blog import views
 
 
-urlpatterns: List[str] = []
+urlpatterns: List[str] = [
+    # Will route to a single post lookup by slug.
+    # Example: /hello-world/
+    url(r'^(?P<slug>[-\w]+)/$', views.EntryDetail.as_view(),
+        name='post_detail'),
+    # Will show list of posts.
+    # Example: /
+    url(r'^$', views.ListView.as_view(), name='list'),
+]
 ```
 
-
+That's all, we just defined one of the most advance and beautiful URL routing on the web.
 
