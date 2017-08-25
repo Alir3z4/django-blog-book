@@ -134,7 +134,7 @@ While working on any project, it's always good to keep `requirement.txt` file up
 
 Let's add some tiny files that help us organize our project.
 
-First file that I always create is `.gitignore `that tells Git to ignore watching some files and directories.
+First file that I always create is [`.gitignore`](https://git-scm.com/docs/gitignore)that tells [Git](https://git-scm.com/) to ignore watching some files and directories.
 
 In the root of the project directory a file named `.gitignore`:
 
@@ -237,10 +237,14 @@ tags
 coverage_html/
 ```
 
-Any files or directory listed above will not be ignored by Git.
+Usually that's all I want to be ignored in Git when working on a Python project.
 
 ## Summary
 
-In this chapter we have started our project and created our single `blog`.  
+In this chapter we have started our project and created our single blog.
+
+We learned the difference between Django Application and Django Projects and their relationship. We started using requirements.txt as an small towards having a reproducable project environment and finally we set rules for Git to ignore specific files that are not important to be tracked.
+
+  
 Now, we have all the things we need to start developing our Django Blog.
 
