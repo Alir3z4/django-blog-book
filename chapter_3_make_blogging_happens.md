@@ -236,7 +236,8 @@ from django.conf.urls import url
 
 from blog import views
 
-
+# Django loads that Python module and looks for the variable urlpatterns.
+# This should be a Python list of django.conf.urls.url() instances.
 urlpatterns: List[str] = [
     # Will route to a single post lookup by slug.
     # Example: /hello-world/
@@ -249,4 +250,6 @@ urlpatterns: List[str] = [
 ```
 
 That's all, we just defined one of the most advance and beautiful URL routing on the web.
+
+In Django 
 
